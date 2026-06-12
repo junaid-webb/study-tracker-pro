@@ -127,6 +127,7 @@ function renderTasks() {
     });
 
     updateStats();
+    updateBadges();
 }
 
 function updateStats() {
@@ -170,4 +171,30 @@ function updateStats() {
         "progressFill"
     ).style.width =
     percent + "%";
+}
+
+function updateBadges(){
+
+    const completed =
+    tasks.filter(
+        task => task.completed
+    ).length;
+
+    let badges = "";
+
+    if(completed >= 1)
+        badges +=
+        '<span class="badge">🏆 First Step</span>';
+
+    if(completed >= 5)
+        badges +=
+        '<span class="badge">🏆 Consistent Learner</span>';
+
+    if(completed >= 10)
+        badges +=
+        '<span class="badge">🏆 Study Warrior</span>';
+
+    document.getElementById(
+        "badges"
+    ).innerHTML = badges;
 }

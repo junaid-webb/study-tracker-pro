@@ -71,3 +71,17 @@ li{
     margin-top:10px;
     font-weight:bold;
 }
+
+.achievements{
+    margin:20px 0;
+}
+
+.badge{
+    display:inline-block;
+    background:#22c55e;
+    color:white;
+    padding:8px 12px;
+    border-radius:20px;
+    margin:5px;
+    font-size:14px;
+}
