@@ -62,3 +62,12 @@ li{
 #searchInput{
     width:300px;
 }
+
+.goal-section{
+    margin:20px 0;
+}
+
+.goal-section p{
+    margin-top:10px;
+    font-weight:bold;
+}

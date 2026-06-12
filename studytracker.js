@@ -3,7 +3,16 @@ JSON.parse(
     localStorage.getItem("tasks")
 ) || [];
 
+let goal =
+localStorage.getItem("goal")
+|| 0;
+
 renderTasks();
+
+document.getElementById(
+    "goalText"
+).textContent =
+"Goal: " + goal + " Topics";
 
 function addTask() {
 
@@ -25,6 +34,24 @@ function addTask() {
     saveTasks();
 
     taskInput.value = "";
+}
+
+function saveGoal(){
+
+    goal =
+    document.getElementById(
+        "goalInput"
+    ).value;
+
+    localStorage.setItem(
+        "goal",
+        goal
+    );
+
+    document.getElementById(
+        "goalText"
+    ).textContent =
+    "Goal: " + goal + " Topics";
 }
 
 function toggleTask(index) {
