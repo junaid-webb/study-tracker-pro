@@ -1,3 +1,4 @@
+
 let tasks =
 JSON.parse(
     localStorage.getItem("tasks")
@@ -130,19 +131,21 @@ function renderTasks() {
                 ? "completed"
                 : ""
             }">
-                ${task.category}
+                ${task.category || ""}
                 ${task.text}
             </span>
 
-            <button
-                onclick="toggleTask(${index})">
-                Complete
-            </button>
+            <div>
+                <button
+                    onclick="toggleTask(${index})">
+                    Complete
+                </button>
 
-            <button
-                onclick="deleteTask(${index})">
-                Delete
-            </button>
+                <button
+                    onclick="deleteTask(${index})">
+                    Delete
+                </button>
+            </div>
         `;
 
         taskList.appendChild(li);
@@ -181,7 +184,7 @@ function updateStats() {
     total === 0
     ? 0
     : Math.round(
-        (completed/total)*100
+        (completed / total) * 100
     );
 
     document.getElementById(
@@ -250,6 +253,16 @@ function startTimer(){
             time--;
 
             updateTimer();
+
+        } else {
+
+            clearInterval(interval);
+
+            interval = null;
+
+            alert(
+                "🎉 Pomodoro Session Complete!"
+            );
         }
 
     },1000);
