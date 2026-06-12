@@ -7,12 +7,34 @@ let goal =
 localStorage.getItem("goal")
 || 0;
 
+const quotes = [
+
+    "Small progress is still progress.",
+
+    "Consistency beats motivation.",
+
+    "Study now, shine later.",
+
+    "Every expert was once a beginner."
+
+];
+
 renderTasks();
 
 document.getElementById(
     "goalText"
 ).textContent =
 "Goal: " + goal + " Topics";
+
+document.getElementById(
+    "quote"
+).textContent =
+quotes[
+    Math.floor(
+        Math.random() *
+        quotes.length
+    )
+];
 
 function addTask() {
 
@@ -198,6 +220,7 @@ function updateBadges(){
         "badges"
     ).innerHTML = badges;
 }
+
 let time = 1500;
 let interval;
 

@@ -95,3 +95,12 @@ li{
     font-weight:bold;
     margin:15px 0;
 }
+
+.quote{
+    margin:25px 0;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    font-style:italic;
+    text-align:center;
+}
