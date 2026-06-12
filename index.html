@@ -8,9 +8,34 @@
 
     <h1>📚 Study Tracker</h1>
 
-    <input type="text" id="taskInput" placeholder="Enter study topic">
+    <input
+        type="text"
+        id="taskInput"
+        placeholder="Enter study topic"
+    >
 
-    <button onclick="addTask()">Add</button>
+    <button onclick="addTask()">
+        Add
+    </button>
+
+    <div class="stats">
+
+        <div class="card">
+            <h3 id="totalTasks">0</h3>
+            <p>Total Topics</p>
+        </div>
+
+        <div class="card">
+            <h3 id="completedTasks">0</h3>
+            <p>Completed</p>
+        </div>
+
+        <div class="card">
+            <h3 id="pendingTasks">0</h3>
+            <p>Pending</p>
+        </div>
+
+    </div>
 
     <ul id="taskList"></ul>
 

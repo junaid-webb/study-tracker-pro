@@ -15,3 +15,21 @@ button{
     text-decoration:line-through;
     color:gray;
 }
+
+.stats{
+    display:flex;
+    gap:15px;
+    margin:20px 0;
+}
+
+.card{
+    border:1px solid #ddd;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    min-width:120px;
+}
+
+.card h3{
+    margin-bottom:5px;
+}

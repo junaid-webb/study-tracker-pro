@@ -1,4 +1,7 @@
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+let tasks =
+JSON.parse(
+    localStorage.getItem("tasks")
+) || [];
 
 renderTasks();
 
@@ -7,7 +10,7 @@ function addTask() {
     const taskInput =
     document.getElementById("taskInput");
 
-    if (taskInput.value.trim() === "")
+    if(taskInput.value.trim() === "")
         return;
 
     tasks.push({
@@ -30,7 +33,7 @@ function toggleTask(index) {
 
 function deleteTask(index) {
 
-    tasks.splice(index, 1);
+    tasks.splice(index,1);
 
     saveTasks();
 }
@@ -58,19 +61,53 @@ function renderTasks() {
         document.createElement("li");
 
         li.innerHTML = `
-            <span class="${task.completed ? "completed" : ""}">
+            <span class="${
+                task.completed
+                ? "completed"
+                : ""
+            }">
                 ${task.text}
             </span>
 
-            <button onclick="toggleTask(${index})">
+            <button
+                onclick="toggleTask(${index})">
                 Complete
             </button>
 
-            <button onclick="deleteTask(${index})">
+            <button
+                onclick="deleteTask(${index})">
                 Delete
             </button>
         `;
 
         taskList.appendChild(li);
     });
+
+    updateStats();
+}
+
+function updateStats() {
+
+    const total =
+    tasks.length;
+
+    const completed =
+    tasks.filter(
+        task => task.completed
+    ).length;
+
+    const pending =
+    total - completed;
+
+    document.getElementById(
+        "totalTasks"
+    ).textContent = total;
+
+    document.getElementById(
+        "completedTasks"
+    ).textContent = completed;
+
+    document.getElementById(
+        "pendingTasks"
+    ).textContent = pending;
 }
