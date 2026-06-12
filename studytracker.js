@@ -198,3 +198,54 @@ function updateBadges(){
         "badges"
     ).innerHTML = badges;
 }
+let time = 1500;
+let interval;
+
+function updateTimer(){
+
+    let minutes =
+    Math.floor(time / 60);
+
+    let seconds =
+    time % 60;
+
+    document.getElementById(
+        "timer"
+    ).textContent =
+    `${String(minutes).padStart(2,"0")}:${String(seconds).padStart(2,"0")}`;
+}
+
+function startTimer(){
+
+    if(interval) return;
+
+    interval =
+    setInterval(()=>{
+
+        if(time > 0){
+
+            time--;
+
+            updateTimer();
+        }
+
+    },1000);
+}
+
+function pauseTimer(){
+
+    clearInterval(interval);
+
+    interval = null;
+}
+
+function resetTimer(){
+
+    pauseTimer();
+
+    time = 1500;
+
+    updateTimer();
+}
+
+updateTimer();

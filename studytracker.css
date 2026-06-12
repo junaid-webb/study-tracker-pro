@@ -85,3 +85,13 @@ li{
     margin:5px;
     font-size:14px;
 }
+
+.pomodoro{
+    margin:20px 0;
+}
+
+#timer{
+    font-size:3rem;
+    font-weight:bold;
+    margin:15px 0;
+}
