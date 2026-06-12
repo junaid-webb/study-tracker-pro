@@ -1,43 +1,76 @@
+let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+renderTasks();
+
 function addTask() {
 
     const taskInput =
     document.getElementById("taskInput");
 
-    const taskList =
-    document.getElementById("taskList");
-
     if (taskInput.value.trim() === "")
         return;
 
-    const li =
-    document.createElement("li");
+    tasks.push({
+        text: taskInput.value,
+        completed: false
+    });
 
-    li.innerHTML = `
-        <span>${taskInput.value}</span>
-
-        <button onclick="toggleTask(this)">
-            Complete
-        </button>
-
-        <button onclick="deleteTask(this)">
-            Delete
-        </button>
-    `;
-
-    taskList.appendChild(li);
+    saveTasks();
 
     taskInput.value = "";
 }
 
-function toggleTask(button) {
+function toggleTask(index) {
 
-    const task =
-    button.parentElement.querySelector("span");
+    tasks[index].completed =
+    !tasks[index].completed;
 
-    task.classList.toggle("completed");
+    saveTasks();
 }
 
-function deleteTask(button) {
+function deleteTask(index) {
 
-    button.parentElement.remove();
+    tasks.splice(index, 1);
+
+    saveTasks();
+}
+
+function saveTasks() {
+
+    localStorage.setItem(
+        "tasks",
+        JSON.stringify(tasks)
+    );
+
+    renderTasks();
+}
+
+function renderTasks() {
+
+    const taskList =
+    document.getElementById("taskList");
+
+    taskList.innerHTML = "";
+
+    tasks.forEach((task,index)=>{
+
+        const li =
+        document.createElement("li");
+
+        li.innerHTML = `
+            <span class="${task.completed ? "completed" : ""}">
+                ${task.text}
+            </span>
+
+            <button onclick="toggleTask(${index})">
+                Complete
+            </button>
+
+            <button onclick="deleteTask(${index})">
+                Delete
+            </button>
+        `;
+
+        taskList.appendChild(li);
+    });
 }
