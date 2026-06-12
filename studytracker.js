@@ -57,9 +57,20 @@ function renderTasks() {
     const taskList =
     document.getElementById("taskList");
 
+    const searchValue =
+    document.getElementById("searchInput")
+    .value
+    .toLowerCase();
+
     taskList.innerHTML = "";
 
-    tasks.forEach((task,index)=>{
+    tasks
+    .filter(task =>
+        task.text
+        .toLowerCase()
+        .includes(searchValue)
+    )
+    .forEach((task,index)=>{
 
         const li =
         document.createElement("li");
