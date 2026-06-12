@@ -33,3 +33,26 @@ button{
 .card h3{
     margin-bottom:5px;
 }
+
+.progress-container{
+    margin:20px 0;
+}
+
+.progress-text{
+    margin-bottom:10px;
+}
+
+.progress-bar{
+    width:100%;
+    height:15px;
+    background:#ddd;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-fill{
+    width:0%;
+    height:100%;
+    background:#4CAF50;
+    transition:0.5s;
+}

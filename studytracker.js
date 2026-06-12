@@ -110,4 +110,21 @@ function updateStats() {
     document.getElementById(
         "pendingTasks"
     ).textContent = pending;
+
+    const percent =
+    total === 0
+    ? 0
+    : Math.round(
+        (completed/total)*100
+    );
+
+    document.getElementById(
+        "progressPercent"
+    ).textContent =
+    percent + "%";
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+    percent + "%";
 }
