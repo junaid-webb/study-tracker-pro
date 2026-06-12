@@ -10,11 +10,15 @@ function addTask() {
     const taskInput =
     document.getElementById("taskInput");
 
+    const category =
+    document.getElementById("category");
+
     if(taskInput.value.trim() === "")
         return;
 
     tasks.push({
         text: taskInput.value,
+        category: category.value,
         completed: false
     });
 
@@ -66,6 +70,7 @@ function renderTasks() {
                 ? "completed"
                 : ""
             }">
+                ${task.category}
                 ${task.text}
             </span>
 
